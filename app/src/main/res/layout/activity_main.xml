@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:background="@drawable/background2"
+    tools:context="com.example.sherif.skullmp3.MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_songs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+    <!--Layout containing the mp3 controls-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/player_container"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:weightSum="1.0">
+
+
+        <!--Banner Layout at the top-->
+        <LinearLayout
+            android:id="@+id/layout_banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:weightSum="1.0"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/bg_banner">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:scaleType="centerInside"
+                android:src="@drawable/hand"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75"
+                android:orientation="vertical"
+                android:weightSum="1.0">
+                <TextView
+                    android:id="@+id/txt_song"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.65"
+                    android:text="Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name Song-Name "
+                    android:textSize="22sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:scrollHorizontally="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:freezesText="true"/>
+
+                <TextView
+                    android:id="@+id/txt_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
+                    android:text="Song Artist"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/white"
+                    android:layout_weight="0.35"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Control Layout container record image and control buttons-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.85"
+            android:paddingTop="15dp">
+            <ImageView
+                android:id="@+id/img_record"
+                android:layout_width="match_parent"
+                android:layout_height="290dp"
+                android:src="@drawable/skullicon"
+                android:scaleType="centerInside"
+                android:layout_marginBottom="15dp"/>
+
+            <SeekBar
+                android:id="@+id/seekbar"
+                android:layout_below="@+id/img_record"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:minHeight="1dp"
+                android:minWidth="1dp"
+                android:maxHeight="1dp"
+                android:maxWidth="5dp"
+                android:progress="55"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/skullthumb2"/>
+
+            <!--Layout containing the control buttons-->
+            <RelativeLayout
+                android:id="@+id/layout_control_buttons"
+                android:layout_below="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:gravity="center_vertical">
+
+                <ImageButton
+                    android:id="@+id/icon_pause_play"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:clickable="true"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:src="@drawable/play50"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/bg_play_icon"/>
+
+                <ImageButton
+                    android:id="@+id/icon_rewind"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:src="@drawable/rewind50"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/bg_rewind_icon"
+                    android:layout_toLeftOf="@+id/icon_pause_play"/>
+
+                <ImageButton
+                    android:id="@+id/icon_forward"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/forward50"
+                    android:background="@drawable/bg_forward_icon"
+                    android:layout_toRightOf="@+id/icon_pause_play"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

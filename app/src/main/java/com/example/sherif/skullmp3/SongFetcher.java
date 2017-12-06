@@ -16,6 +16,7 @@ public class SongFetcher {
     private static SongFetcher instance;
     private Context mContext;
     private List<Song> songList;
+
     private SongFetcher(Context context){
         //singleton constructor
         mContext=context;
@@ -27,7 +28,6 @@ public class SongFetcher {
             instance=new SongFetcher(context);
         }return instance;
     }
-
 
     public List<Song> fetchSongs(){
         ContentResolver musicResolver = mContext.getContentResolver();

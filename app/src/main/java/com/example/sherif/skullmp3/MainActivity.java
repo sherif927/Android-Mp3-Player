@@ -11,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongS
     @BindView(R.id.txt_song) TextView songName;
     @BindView(R.id.txt_artist) TextView songArtist;
     @BindView(R.id.recycler_songs) RecyclerView songsRecycler;
+    @BindView(R.id.layout_current) RelativeLayout currentlyPlayingLayout;
 
     private int pauseRes=R.drawable.pause50;
     private int playRes=R.drawable.play50;
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongS
         init();
         initRecycler();
     }
-
 
     private void initRecycler(){
         mAdapter=new SongAdapter(songs,this,this);
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongS
         mPlayer=MediaPlayer.create(this, Uri.parse(currentSong.getPath()));
         displaySong();
     }
+
     private void getScreenDimens(){
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -87,10 +89,13 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongS
 
     private void lowerPlayer() {
         playerContainer.animate().translationYBy(screenHeight).start();
+        currentlyPlayingLayout.setVisibility(View.VISIBLE);
     }
 
     private void liftPlayer() {
         playerContainer.animate().translationYBy(-screenHeight).start();
+        currentlyPlayingLayout.setVisibility(View.GONE);
+
     }
 
 
@@ -159,7 +164,6 @@ public class MainActivity extends AppCompatActivity implements SongAdapter.SongS
             }
         });
     }
-
 
 
     @Override

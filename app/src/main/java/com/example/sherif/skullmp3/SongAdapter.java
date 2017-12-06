@@ -18,8 +18,7 @@ import butterknife.OnClick;
  */
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongHolder>{
 
-
-   private List<Song> songList;
+    private List<Song> songList;
     private SongSelector selectorReference;
     private Context context;
     private LayoutInflater inflater;
